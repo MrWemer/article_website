@@ -1,0 +1,18 @@
+<!-- articles/templates/articles/delete_article.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Delete Article</h2>
+        <p class="card-text">Are you sure you want to delete the article "{{ article.title }}"?</p>
+        <form method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Yes, Delete</button>
+          <a href="{% url 'user_articles' %}" class="btn btn-secondary ml-2">No, Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!-- articles/templates/articles/article_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">{{ article.title }}</h2>
+        <p class="card-text">{{ article.content }}</p>
+        <p class="card-text"><small class="text-muted">Published on: {{ article.pub_date }}</small></p>
+        <a href="{% url 'user_articles' %}" class="btn btn-secondary">Back to Your Articles</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

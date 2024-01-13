@@ -1,0 +1,22 @@
+<!-- articles/templates/articles/edit_article.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Edit Article</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">Title</label>
+        <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="{{ form.title.name }}" value="{{ form.title.value }}">
+      </div>
+      <div class="form-group">
+        <label for="{{ form.content.id_for_label }}">Content</label>
+        <textarea class="form-control" id="{{ form.content.id_for_label }}" name="{{ form.content.name }}" rows="9">{{ form.content.value }}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <a href="{% url 'user_articles' %}" class="btn btn-secondary ml-2">Cancel</a>
+      <a href="{% url 'delete_article' article.id %}" class="btn btn-danger ml-2">Delete Article</a>
+    </form>
+  </div>
+{% endblock %}

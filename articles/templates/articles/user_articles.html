@@ -1,0 +1,27 @@
+<!-- articles/templates/articles/user_articles.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1>Your Articles</h1>
+
+    {% if user_articles %}
+      {% for article in user_articles %}
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.content }}</p>
+            <p class="card-text"><small class="text-muted">Published on: {{ article.pub_date }}</small></p>
+            <a href="{% url 'article_detail' article.id %}" class="btn btn-primary">Read More</a>
+            <a href="{% url 'edit_article' article.id %}" class="btn btn-secondary ml-2">Edit</a>
+            <a href="{% url 'delete_article' article.id %}" class="btn btn-danger ml-2">Delete</a>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No articles found.</p>
+    {% endif %}
+
+    <a href="{% url 'create_article' %}" class="btn btn-success">Create New Article</a>
+  </div>
+{% endblock %}

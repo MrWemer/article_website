@@ -1,0 +1,23 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 960px;
+}
+
+.navbar {
+    border-bottom: 1px solid #343a40;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
